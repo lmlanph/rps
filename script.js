@@ -1,7 +1,5 @@
 
-
-
-
+// computer selection random
 
 function computerSelection() { 
     const choice = ['rock', 'paper', 'scissors']
@@ -9,12 +7,10 @@ function computerSelection() {
     return choice[rand]
 }
 
-// console.log(computerPick())
+// play one round
 
 function playRound(playerSelection, computerSelection) {
-    // return
-    // add code here
-    // console.log(someText.toLowerCase());
+
     if (playerSelection.toLowerCase() === 'rock') {
         if (computerSelection === 'rock') {
             return 'tie'
@@ -23,6 +19,7 @@ function playRound(playerSelection, computerSelection) {
         } else {
             return 'you win! rock beats scissors!'
         }
+
     } else if (playerSelection.toLowerCase() === 'paper') {
         if (computerSelection === 'rock') {
             return 'you win! paper beats rock!'
@@ -43,9 +40,10 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// const playerSelection = 'rock'
+// play n rounds, keep score
 
 let playerScore = 0;
+let computerScore = 0;
 
 for (let i = 0; i < 5; i++) {
     let playerSelection = prompt("What's your choice?");
@@ -59,8 +57,8 @@ for (let i = 0; i < 5; i++) {
     if (result.includes('win')) {
         playerScore += 1
     } else if (result.includes('lose')) {
-        playerScore -= 1
+        computerScore += 1
     }
 }
 
-console.log(playerScore);
+console.log(`player: ${playerScore} -- computer: ${computerScore}`);
