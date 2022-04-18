@@ -43,7 +43,24 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = 'rock'
-const compSelection = computerSelection()
-console.log(`player selected ${playerSelection}--computer selected ${compSelection}`)
-console.log(playRound(playerSelection, compSelection))
+// const playerSelection = 'rock'
+
+let playerScore = 0;
+
+for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt("What's your choice?");
+    const compSelection = computerSelection()
+    console.log(`player selected ${playerSelection}--computer selected ${compSelection}`)
+
+    let result = playRound(playerSelection, compSelection)
+
+    console.log(result)
+
+    if (result.includes('win')) {
+        playerScore += 1
+    } else if (result.includes('lose')) {
+        playerScore -= 1
+    }
+}
+
+console.log(playerScore);
