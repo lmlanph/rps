@@ -1,4 +1,21 @@
 
+
+
+// player choice
+
+const btns = document.querySelectorAll('.btn')
+
+for (i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', clickFunc)
+}
+
+function clickFunc() {
+    console.log(this.dataset.choice)
+    // console.log('hey there')
+}
+
+
+
 // computer selection random
 
 function computerSelection() { 
@@ -41,24 +58,29 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // play n rounds, keep score
+function game(rounds) {
 
-let playerScore = 0;
-let computerScore = 0;
+    let playerScore = 0;
+    let computerScore = 0;
 
-for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt("What's your choice?");
-    const compSelection = computerSelection()
-    console.log(`player selected ${playerSelection}--computer selected ${compSelection}`)
+    for (let i = 0; i < rounds; i++) {
+        let playerSelection = prompt("What's your choice?");
+        const compSelection = computerSelection()
+        console.log(`player selected ${playerSelection}--computer selected ${compSelection}`)
 
-    let result = playRound(playerSelection, compSelection)
+        let result = playRound(playerSelection, compSelection)
 
-    console.log(result)
+        console.log(result)
 
-    if (result.includes('win')) {
-        playerScore += 1
-    } else if (result.includes('lose')) {
-        computerScore += 1
+        if (result.includes('win')) {
+            playerScore += 1
+        } else if (result.includes('lose')) {
+            computerScore += 1
+        }
     }
+
+    console.log(`player: ${playerScore} -- computer: ${computerScore}`);
 }
 
-console.log(`player: ${playerScore} -- computer: ${computerScore}`);
+// game(3);
+
