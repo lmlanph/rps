@@ -1,20 +1,17 @@
 let playerScore = 0;
 let computerScore = 0;
 
+// cache dom
 let text = document.getElementById('text')
 let score = document.getElementById('score')
 let comp = document.getElementById('comp')
 let win = document.getElementById('winner')
 
-
 const btns = document.querySelectorAll('.btn')
 
+// add listeners
 for (i = 0; i < btns.length; i++) {
     btns[i].addEventListener('click', clickFunc)
-}
-
-function clickFunc(e) {
-    play(e.target.dataset.choice)
 }
 
 // computer selection random
@@ -68,20 +65,22 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// play n rounds, keep score
+// click to play
+function clickFunc(e) {
+    play(e.target.dataset.choice)
+}
+
+// play
 function play(choice) {
 
     console.log(choice)
 
-    // // let playerSelection = prompt("What's your choice?");
     let playerSelection = choice
     const compSelection = computerSelection()
-    // console.log(`player selected ${playerSelection}--computer selected ${compSelection}`)
 
     let result = playRound(playerSelection, compSelection)
 
-    // console.log(result)
-
+    // this could be done in a better way...
     if (result.includes('win')) {
         playerScore += 1
     } else if (result.includes('lose')) {
@@ -94,7 +93,6 @@ function play(choice) {
         win.innerText = 'Sorry bud, you lost!'
     }
 
-    // console.log(`player: ${playerScore} -- computer: ${computerScore}`);
     score.innerText = `player has ${playerScore} ---- computer has ${computerScore}`;
     comp.innerText = `computer picked... ${compSelection}`;
 }
