@@ -1,9 +1,31 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Anek Gujarati', sans-serif;
+}
+
+.header {
+    height: 75px;
+}
+
+#text, #score {
+    text-align: center;
+    font-size: 2.3em;
+    margin: 10px auto;
+}
+
+#comp {
+    text-align: center;
+    font-size: 1.7em;
+    margin: 10px auto;
+}
+
 .btn-parent {
     display: flex;
     justify-content: center;
     align-items: center;
     column-gap: 25px;
-    margin: 50px auto;
+    margin: 55px auto;
 }
 
 .btn {
@@ -12,4 +34,7 @@
     border-radius: 50%;
     background-color: lightblue;
     text-align: center;
+    line-height: 111px;
+    cursor: pointer;
+    font-size: 2em;
 }
