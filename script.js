@@ -4,6 +4,7 @@ let computerScore = 0;
 let text = document.getElementById('text')
 let score = document.getElementById('score')
 let comp = document.getElementById('comp')
+let win = document.getElementById('winner')
 
 
 const btns = document.querySelectorAll('.btn')
@@ -85,6 +86,12 @@ function play(choice) {
         playerScore += 1
     } else if (result.includes('lose')) {
         computerScore += 1
+    }
+
+    if (playerScore >=5 && computerScore < 5) {
+        win.innerText = 'You Won You Lucky Son of a Gun!'
+    } else if (playerScore < 5 && computerScore >= 5) {
+        win.innerText = 'Sorry bud, you lost!'
     }
 
     // console.log(`player: ${playerScore} -- computer: ${computerScore}`);
